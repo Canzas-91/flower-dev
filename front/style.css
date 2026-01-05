@@ -296,3 +296,49 @@ p {
   background-color: #fff;
   border: none;
 }
+
+/* главный блок - каталог  */
+.cotalog {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.cotalog_title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  margin-bottom: 40px;
+}
+.cotalog_items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.cotalog_item {
+  width: auto;
+}
+.cotalog_activ {
+  display: flex;
+  width: 296px;
+}
+.cotalog_price {
+  font-weight: 900;
+  font-size: 24px;
+}
+.item_title {
+  font-weight: 200;
+  font-size: 12px;
+}
+.cotalog_bt {
+  display: block;
+  width: 110px;
+  height: 32px;
+  box-sizing: border-box;
+  background-color: #665F5F;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  font-size: 12px;
+  margin-top: 12px;
+}
