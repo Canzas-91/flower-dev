@@ -309,6 +309,7 @@ p {
   font-size: 56px;
   margin-top: 134px;
   margin-bottom: 40px;
+  color: #665F5F;
 }
 .cotalog_items {
   display: grid;
@@ -316,23 +317,40 @@ p {
   gap: 30px;
 }
 .cotalog_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: auto;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  padding: 0 !important;  /* убирает внутренние отступы самой карточки */
+  box-sizing: border-box;
 }
 .cotalog_activ {
   display: flex;
-  width: 296px;
+  width: auto;
+  gap: 20px;
+  padding: 15px 30px;
 }
 .cotalog_price {
   font-weight: 900;
   font-size: 24px;
+  color: #665F5F;
+}
+.cotalog_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .item_title {
   font-weight: 200;
-  font-size: 12px;
+  font-size: 14px;
+  color: #000;
 }
 .cotalog_bt {
   display: block;
-  width: 110px;
+  width: 130px;
   height: 32px;
   box-sizing: border-box;
   background-color: #665F5F;
@@ -340,5 +358,110 @@ p {
   border: none;
   font-weight: 900;
   font-size: 12px;
-  margin-top: 12px;
+  margin-top: 24px;
+  border-radius: 5px;
+}
+.cotalog_img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 !important;   /* убирает отступы у изображения */
+  padding: 0 !important;
+}
+
+/* главный блок - Why choose us */
+.why {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.why_title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  color: #665F5F;
+  
+}
+.title_conteiner {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+}
+.why_conteiner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 47px;
+  margin-top: 60px;
+}
+.why_icoandtitle {
+  display: flex;
+  padding: 15px 24px;
+}
+.why_icoandtitle_title {
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.why_icon {
+  width: 77px;
+  height: 84px;
+}
+.why_discription {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0 24px 24px 24px;
+}
+
+/* главный блок - FAQ */
+section {
+  max-width: 104rem;
+  max-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.FAQ_title {
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  color: #665F5F;
+}
+.FAQ {
+  text-align: center;
+  min-width:1624px; 
+}
+h3 {
+  font-size: 32px;
+  font-weight: 400;
+}
+p{
+  font-size: 24px;
+  font-weight: 200;
+}
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-top: 40px;
+}
+.answer {
+  max-height: 0;
+  overflow: hidden;
+}
+.FAQ.active .answer {
+  max-height: 200px;
+  margin-top: 20px;
+  transition: max-height 0.3s ease;
+}
+
+.FAQ.active svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
 }
