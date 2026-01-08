@@ -1,0 +1,710 @@
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+a {
+  text-decoration: none;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* шапка */
+.header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  padding: 15px 360px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  width: 110px;
+  height: 100px;
+}
+
+.cart-ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+/* главный блок */
+
+/* главный блок - обложка */
+.cover-img {
+  width: 100%;
+  max-width: 100vw;
+}
+
+.cover {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cover-text {
+  z-index: 3;
+  position: absolute;
+  text-align: center;
+  color: #fff;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 100px;
+  line-height: 122%;
+  margin: 0;
+}
+
+p {
+  font-weight: 400;
+  font-size: 32px;
+  margin: 20px 0;
+}
+
+.cover-bt {
+  width: 236px;
+  height: 63px;
+  font-size: 24px;
+  font-weight: 900;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.cover-bt:hover {
+  background-color: #f5f5f5;
+}
+
+/* главный блок - каталог  */
+.cotalog {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cotalog_title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  margin-bottom: 40px;
+  color: #665F5F;
+}
+
+.cotalog_items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.cotalog_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cotalog_item:hover {
+  transform: translateY(-5px);
+}
+
+.cotalog_activ {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  padding: 15px 30px;
+  background-color: white;
+}
+
+.cotalog_price {
+  font-weight: 900;
+  font-size: 24px;
+  color: #665F5F;
+  margin: 0;
+}
+
+.cotalog_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.item_title {
+  font-weight: 200;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cotalog_bt {
+  display: block;
+  width: 130px;
+  height: 32px;
+  box-sizing: border-box;
+  background-color: #665F5F;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  font-size: 12px;
+  margin-top: 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cotalog_bt:hover {
+  background-color: #544b4b;
+}
+
+.cotalog_img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* главный блок - Why choose us */
+.why {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.why_title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  color: #665F5F;
+}
+
+.title_conteiner {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.title_conteiner:hover {
+  transform: translateY(-5px);
+}
+
+.why_conteiner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 47px;
+  margin-top: 60px;
+}
+
+.why_icoandtitle {
+  display: flex;
+  padding: 15px 24px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.why_icoandtitle_title {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.why_icon {
+  width: 77px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.why_discription {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 20px 24px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* главный блок - FAQ */
+section {
+  max-width: 104rem;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FAQ_title {
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  color: #665F5F;
+  text-align: center;
+}
+
+.FAQ {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-top: 40px;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  text-align: left;
+  transition: max-height 0.3s ease;
+}
+
+.answer p {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 20px 0 0 0;
+  line-height: 1.5;
+}
+
+.FAQ.active .answer {
+  max-height: 500px;
+}
+
+.FAQ.active svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.question svg {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* главный блок - галерея */
+.galary {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galary_title {
+  font-weight: 900;
+  font-size: 56px;
+  margin-top: 134px;
+  color: #665F5F;
+  text-align: center;
+}
+
+.galary_link {
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+}
+
+.galary_imgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.galary_img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.galary_img:hover {
+  transform: scale(1.05);
+}
+
+/* главный блок - working hours */
+.worcktime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 134px;
+  width: 100%;
+}
+
+.worcktime_img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+}
+
+/* футер */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px 30px;
+  margin-top: 100px;
+  border-top: 1px solid #eee;
+}
+
+.footer_title {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #665F5F;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .header {
+    padding: 15px 100px;
+  }
+  
+  h1 {
+    font-size: 80px;
+  }
+  
+  .cotalog_items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .why_conteiner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .galary_imgs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  h1 {
+    font-size: 50px;
+  }
+  
+  p {
+    font-size: 24px;
+  }
+  
+  .cotalog_items {
+    grid-template-columns: 1fr;
+  }
+  
+  .why_conteiner {
+    grid-template-columns: 1fr;
+  }
+  
+  .galary_imgs {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .why_icoandtitle {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .cotalog_activ {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cotalog_bt {
+    margin-top: 0;
+  }
+}
