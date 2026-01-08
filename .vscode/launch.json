@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FlowersApplication<flowers>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "shop_of_flowers.com.flowers.FlowersApplication",
+            "projectName": "flowers",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
