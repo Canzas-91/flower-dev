@@ -4,14 +4,6 @@ faqs.forEach(faq => {
     const question = faq.querySelector('.question');
     
     question.addEventListener('click', () => {
-        // Закрываем все открытые FAQ
-        faqs.forEach(otherFaq => {
-            if (otherFaq !== faq && otherFaq.classList.contains('active')) {
-                otherFaq.classList.remove('active');
-            }
-        });
-        
-        // Открываем/закрываем текущий FAQ
         faq.classList.toggle('active');
     });
 });
@@ -25,8 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const item = this.closest('.cotalog_item');
             const itemName = item.querySelector('.item_title').textContent;
             const itemPrice = item.querySelector('.cotalog_price').textContent;
-            
-            alert(`Added to cart: ${itemName}\nPrice: ${itemPrice}`);
             
             // Можно добавить анимацию
             this.textContent = 'Added!';
