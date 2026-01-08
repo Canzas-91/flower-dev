@@ -1,2 +1,24 @@
-/mvnw text eol=lf
-*.cmd text eol=crlf
+# Установите поведение для всех файлов
+* text=auto
+
+# Явно укажите для текстовых файлов
+*.java text
+*.xml text
+*.properties text
+*.yml text
+*.yaml text
+*.md text
+*.txt text
+*.html text
+*.css text
+*.js text
+*.json text
+
+# Для бинарных файлов отключите конвертацию
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.jar binary
+*.class binary
