@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href = "../static/css/style.css">
     <title>Цветочный магазин - Павловский Посад</title>
 </head>
 <body>
     <header class="header">
-        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип цветочного магазина">
-        <div class="cart-ico">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
-                <title>Корзина</title>
-                <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
-                    <path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/>
-                    <path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/>
-                </g>
-            </svg>
+        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип цветочного магазина" src ="../static/images/Group 514.png">
+        <div class="header_active">
+            <div class="reg_ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 16 16" fill="none"><path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#000000"/><path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#000000"/></svg>
+            </div>
+            <div class="cart-ico">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><title>Корзина</title><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/><path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/></g></svg>
+            </div>
         </div>
     </header>
     <main class="main">
         <div class="cover">
-            <img class="cover-img" th:src="@{/images/cover.png}" alt="Цветочная композиция">
+            <img class="cover-img" th:src="@{/images/cover.png}" alt="Цветочная композиция" src="../static/images/cover.png">
             <div class="cover-text">
                 <h1 class="cover-title">Цветы для любого случая</h1>
                 <p>Доставляем самые свежие цветы в Павловском Посаде</p>
@@ -32,7 +31,7 @@
             <h1 class="cotalog_title">ПОПУЛЯРНЫЕ БУКЕТЫ</h1>
             <div class="cotalog_items">
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Кристалл">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Кристалл" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Кристалл (розовые гвоздики с миксовыми цветами)</p>
@@ -42,7 +41,7 @@
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Нежность">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Нежность" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Нежность (белые розы с эвкалиптом)</p>
@@ -52,7 +51,7 @@
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Весна">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Весна" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Весна (тюльпаны с гипсофилой)</p>
@@ -62,7 +61,7 @@
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Романтика">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Романтика" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Романтика (красные розы)</p>
@@ -72,7 +71,7 @@
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Элегантность">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Элегантность" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Элегантность (орхидеи с зеленью)</p>
@@ -82,7 +81,7 @@
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Летнее настроение">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Летнее настроение" src="../static/images/item1.png">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
                             <p class="item_title">Летнее настроение (подсолнухи с ромашками)</p>
@@ -99,21 +98,21 @@
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
                         <h3 class="why_icoandtitle_title">Большой выбор</h3>
-                        <img class="why_icon" th:src="@{/icon/icon1.png}" alt="Иконка выбора">
+                        <img class="why_icon" th:src="@{/icon/icon1.png}" alt="Иконка выбора" src="../static/icon/icon1.png">
                     </div>
                     <p class="why_discription">У нас всегда свежие цветы и огромный ассортимент букетов на любой вкус и бюджет.</p>
                 </div>
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
                         <h3 class="why_icoandtitle_title">Быстрая доставка</h3>
-                        <img class="why_icon" th:src="@{/icon/icon2.png}" alt="Иконка доставки">
+                        <img class="why_icon" th:src="@{/icon/icon2.png}" alt="Иконка доставки" src="../static/icon/icon2.png">
                     </div>
                     <p class="why_discription">Доставляем цветы в течение 2 часов по Павловскому Посаду. Работаем с 8:00 до 22:00.</p>
                 </div>
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
                         <h3 class="why_icoandtitle_title">Онлайн-заказ</h3>
-                        <img class="why_icon" th:src="@{/icon/icon3.png}" alt="Иконка онлайн-заказа">
+                        <img class="why_icon" th:src="@{/icon/icon3.png}" alt="Иконка онлайн-заказа" src="../static/icon/icon3.png">
                     </div>
                     <p class="why_discription">Заказывайте цветы онлайн 24/7. Наша команда всегда на связи и готова помочь.</p>
                 </div>
@@ -224,23 +223,37 @@
             <h2 class="galary_title">МЫ В INSTAGRAM</h2>
             <p class="galary_link">@PAVLOVSKIY_POSAD_FLOWERS</p>
             <div class="galary_imgs">
-                <img class="galary_img" th:src="@{/images/img1.png}" alt="Наши работы 1">
-                <img class="galary_img" th:src="@{/images/img2.png}" alt="Наши работы 2">
-                <img class="galary_img" th:src="@{/images/img3.png}" alt="Наши работы 3">
-                <img class="galary_img" th:src="@{/images/img4.png}" alt="Наши работы 4">
-                <img class="galary_img" th:src="@{/images/img5.png}" alt="Наши работы 5">
-                <img class="galary_img" th:src="@{/images/img6.png}" alt="Наши работы 6">
+                <img class="galary_img" th:src="@{/images/img1.png}" alt="Наши работы 1" src="../static/images/img1.png">
+                <img class="galary_img" th:src="@{/images/img2.png}" alt="Наши работы 2" src="../static/images/img2.png">
+                <img class="galary_img" th:src="@{/images/img3.png}" alt="Наши работы 3" src="../static/images/img3.png">
+                <img class="galary_img" th:src="@{/images/img4.png}" alt="Наши работы 4" src="../static/images/img4.png">
+                <img class="galary_img" th:src="@{/images/img5.png}" alt="Наши работы 5" src="../static/images/ing5.png">
+                <img class="galary_img" th:src="@{/images/img6.png}" alt="Наши работы 6" src="../static/images/img6.png">
             </div>
         </div>
 
         <div class="worcktime">
-            <img class="worcktime_img" th:src="@{/images/order2.png}" alt="Время работы">
+            <img class="worcktime_img" th:src="@{/images/order2.png}" alt="Время работы" src="../static/images/order2.png">
         </div>
     </main>
     <footer class="footer">
-        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип">
+        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип" src="../static/images/Group 514.png">
         <h3 class="footer_title">Цветочный магазин в Павловском Посаде<br>Доставка свежих цветов ежедневно<br>+7 (495) 123-45-67</h3>
     </footer>
-    <script th:src="@{/js/main.js}"></script>
+
+    <div class="modal_reg">
+        <div class="modal_content_reg">
+            <img src="../static/images/regimg.png" alt="regimg" class="modal_img_reg">
+            <span class="close_reg">&times;</span>
+            <h2 class="modal_title_reg">Регистрация</h2>
+            <form class="modal_form_reg">
+                <input type="text" class="modal_input_reg" placeholder="Имя">
+                <input type="email" class="modal_input_reg" placeholder="Email">
+                <input type="password" class="modal_input_reg" placeholder="Пароль">
+                <button type="submit" class="modal_button_reg">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/main.js}" src="../static/js/main.js"></script>
 </body>
 </html>
