@@ -32,20 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
             this.textContent = 'Добавлено!';
             this.style.backgroundColor = '#4CAF50';
             this.style.color = 'white';
-            
-            // Анимация корзины
             if (cartIcon) {
-                cartIcon.style.transform = 'scale(1.2)';
+                cartIcon.classList.add('shake');
                 setTimeout(() => {
-                    cartIcon.style.transform = 'scale(1)';
-                }, 300);
+                    cartIcon.classList.remove('shake');
+                }, 500);
             }
             
             // Восстановление кнопки через 2 секунды
             setTimeout(() => {
                 this.textContent = 'В корзину';
                 this.style.backgroundColor = '#665F5F';
-            }, 2000);
+            }, 1000);
             
             // Можно добавить логику сохранения в LocalStorage
             addToCartLocalStorage(itemName, itemPrice);
@@ -143,8 +141,8 @@ function updateCartCounter() {
             counter.style.backgroundColor = '#ff4757';
             counter.style.color = 'white';
             counter.style.borderRadius = '50%';
-            counter.style.width = '20px';
-            counter.style.height = '20px';
+            counter.style.width = '25px';
+            counter.style.height = '25px';
             counter.style.display = 'flex';
             counter.style.alignItems = 'center';
             counter.style.justifyContent = 'center';
@@ -164,3 +162,52 @@ function updateCartCounter() {
 
 // Инициализация счетчика при загрузке
 document.addEventListener('DOMContentLoaded', updateCartCounter);
+
+let regModal = document.querySelector('.modal_reg');
+let regBtn = document.querySelector('.reg_ico');
+let regSpan = document.getElementsByClassName("close_reg")[0];
+let buttons = document.querySelectorAll('.modal_button_reg');
+
+if (buttons) {
+    buttons.forEach(button => {
+        button.onclick = function(event) {
+            event.preventDefault();
+            
+            const nameInput = regModal.querySelector('input[type="text"]');
+            const emailInput = regModal.querySelector('input[type="email"]');
+            const passwordInput = regModal.querySelector('input[type="password"]');
+            if (nameInput.value.trim() === '') {
+                alert('Введите имя!');
+                return;
+            }
+            if (emailInput.value.trim() === '' || !emailInput.value.includes('@')) {
+                alert('Введите корректный email!');
+                return;
+            }
+            if (passwordInput.value.length < 6) {
+                alert('Пароль должен быть минимум 6 символов!');
+                return;
+            }
+            
+            alert('Успешно зарегистрированы!');
+            regModal.style.display = "none";
+            nameInput.value = '';
+            emailInput.value = '';
+            passwordInput.value = '';
+        }
+    });
+}
+
+regSpan.onclick = function() {
+    regModal.style.display = "none";
+}
+
+regBtn.onclick = function() {
+    regModal.style.display = "block";
+}
+
+window.onclick = function(event) {
+    if (event.target == regModal) {
+        regModal.style.display = "none";
+    }
+} 
