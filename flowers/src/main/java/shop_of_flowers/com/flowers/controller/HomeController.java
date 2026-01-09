@@ -1,4 +1,4 @@
-package shop_of_flowers.com.flowers;
+package shop_of_flowers.com.flowers.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
