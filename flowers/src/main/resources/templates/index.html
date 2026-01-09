@@ -1,234 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>Flower</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Цветочный магазин - Павловский Посад</title>
 </head>
 <body>
     <header class="header">
-        <img class="logo" src="../static/images/Group 514.png" alt="logo">
+        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип цветочного магазина">
         <div class="cart-ico">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><title>Cart SVG Icon</title><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/><path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                <title>Корзина</title>
+                <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+                    <path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/>
+                    <path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/>
+                </g>
+            </svg>
         </div>
     </header>
     <main class="main">
         <div class="cover">
-            <img class="cover-img" src="../static/images/cover.png" alt="cover">
+            <img class="cover-img" th:src="@{/images/cover.png}" alt="Цветочная композиция">
             <div class="cover-text">
-                <h1 class="cover-title">Choose flowers for any occasion</h1>
-                <p>Our goal is to provide the highest quality and fresh flower delivery in Los Angeles.</p>
-                <button class="cover-bt">View now</button>
+                <h1 class="cover-title">Цветы для любого случая</h1>
+                <p>Доставляем самые свежие цветы в Павловском Посаде</p>
+                <button class="cover-bt">Смотреть каталог</button>
             </div>    
         </div>
         <div class="cotalog">
-            <h1 class="cotalog_title">TOP RATED</h1>
+            <h1 class="cotalog_title">ПОПУЛЯРНЫЕ БУКЕТЫ</h1>
             <div class="cotalog_items">
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Кристалл">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$245.00</h2>
+                            <p class="item_title">Кристалл (розовые гвоздики с миксовыми цветами)</p>
+                            <h2 class="cotalog_price">2450 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Нежность">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$235.00</h2>
+                            <p class="item_title">Нежность (белые розы с эвкалиптом)</p>
+                            <h2 class="cotalog_price">2350 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Весна">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$235.00</h2>
+                            <p class="item_title">Весна (тюльпаны с гипсофилой)</p>
+                            <h2 class="cotalog_price">2350 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Романтика">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$245.00</h2>
+                            <p class="item_title">Романтика (красные розы)</p>
+                            <h2 class="cotalog_price">2450 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Элегантность">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$245.00</h2>
+                            <p class="item_title">Элегантность (орхидеи с зеленью)</p>
+                            <h2 class="cotalog_price">2450 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
                 <div class="cotalog_item">
-                    <img class="cotalog_img" src="../static/images/item1.png" alt="item1">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Летнее настроение">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
-                            <p class="item_title">Cristal (pink carnations <br> with mix flowers)</p>
-                            <h2 class="cotalog_price">$245.00</h2>
+                            <p class="item_title">Летнее настроение (подсолнухи с ромашками)</p>
+                            <h2 class="cotalog_price">2450 ₽</h2>
                         </div>
-                        <button class="cotalog_bt">Add to cart</button>
+                        <button class="cotalog_bt">В корзину</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="why">
-            <h2 class="why_title">Why choose us?</h2>
+            <h2 class="why_title">Почему выбирают нас?</h2>
             <div class="why_conteiner">
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
-                        <h3 class="why_icoandtitle_title">Extensive сhoice</h3>
-                        <img class="why_icon" src="../static/icon/icon1.png" alt="icon1">
+                        <h3 class="why_icoandtitle_title">Большой выбор</h3>
+                        <img class="why_icon" th:src="@{/icon/icon1.png}" alt="Иконка выбора">
                     </div>
-                    <p class="why_discription">When it comes to delivering flowers as fast as possible, we don't mess around. We also provide next-day delivery from our store to your door.</p>
+                    <p class="why_discription">У нас всегда свежие цветы и огромный ассортимент букетов на любой вкус и бюджет.</p>
                 </div>
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
-                        <h3 class="why_icoandtitle_title">Fast Delivery</h3>
-                        <img class="why_icon" src="../static/icon/icon2.png" alt="icon1">
+                        <h3 class="why_icoandtitle_title">Быстрая доставка</h3>
+                        <img class="why_icon" th:src="@{/icon/icon2.png}" alt="Иконка доставки">
                     </div>
-                    <p class="why_discription">When it comes to delivering flowers as fast as possible, we don't mess around. We also provide next-day delivery from our store to your door.</p>
+                    <p class="why_discription">Доставляем цветы в течение 2 часов по Павловскому Посаду. Работаем с 8:00 до 22:00.</p>
                 </div>
                 <div class="title_conteiner">
                     <div class="why_icoandtitle">
-                        <h3 class="why_icoandtitle_title">Online ordering</h3>
-                        <img class="why_icon" src="../static/icon/icon3.png" alt="icon1">
+                        <h3 class="why_icoandtitle_title">Онлайн-заказ</h3>
+                        <img class="why_icon" th:src="@{/icon/icon3.png}" alt="Иконка онлайн-заказа">
                     </div>
-                    <p class="why_discription">All you need to do is select the type and quantity of what you want online - we'll take care of the rest! Our team is online 24/7 with clients.</p>
+                    <p class="why_discription">Заказывайте цветы онлайн 24/7. Наша команда всегда на связи и готова помочь.</p>
                 </div>
             </div>
         </div>
         <section>
-            <h2 class="FAQ_title">Frequently Asking Questions</h2>
+            <h2 class="FAQ_title">Часто задаваемые вопросы</h2>
 
             <div class="FAQ">
                 <div class="question">
-                    <h3>Can I order same day flower delivery?</h3>
+                    <h3>Можно ли заказать доставку цветов на сегодня?</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
                 </div>
                 <div class="answer">
                     <p>
-                        Yes, you can place your order until 12pm to get it the same day, but if it’s later than 12pm, you can just call us and we will try to rearrange our schedule and deliver it on the same day.
+                        Да, вы можете сделать заказ до 18:00 для доставки в тот же день. Если время позднее - позвоните нам, и мы постараемся организовать доставку.
                     </p>
                 </div>
             </div>
 
             <div class="FAQ">
                 <div class="question">
-                    <h3>How much does flower delivery service cost?</h3>
+                    <h3>Сколько стоит доставка цветов?</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
                 </div>
                 <div class="answer">
                     <p>
-                        The cost of flower delivery service varies depending on the size and complexity of the arrangement. For more details, please contact us directly.
-                </div>
-            </div>
-
-            <div class="FAQ">
-                <div class="question">
-                    <h3>Do you deliver on Sundays?</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
-                </div>
-                <div class="answer">
-                    <p>
-                        Yes, we deliver on Sundays.
-                </div>
-            </div>
-
-            <div class="FAQ">
-                <div class="question">
-                    <h3>How long does it take to deliver flowers?</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
-                </div>
-                <div class="answer">
-                    <p>
-                        It usually takes 1-2 hours.
-                </div>
-            </div>
-
-            <div class="FAQ">
-                <div class="question">
-                    <h3>Can I pick up flowers from the shop?</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
-                </div>
-                <div class="answer">
-                    <p>
-                        Yes, you can pick up flowers from the shop.
-                </div>
-            </div>
-
-            <div class="FAQ">
-                <div class="question">
-                    <h3>Can I order flower delivery for tomorrow?</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
-                </div>
-                <div class="answer">
-                    <p>
-                        Yes, you can order flower delivery for tomorrow.
+                        Доставка по Павловскому Посаду стоит 300 ₽. При заказе от 3000 ₽ доставка бесплатная.
                     </p>
                 </div>
             </div>
 
             <div class="FAQ">
                 <div class="question">
-                    <h3>Where do you deliver flowers?</h3>
+                    <h3>Вы доставляете цветы в воскресенье?</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
                 </div>
                 <div class="answer">
                     <p>
-                        We deliver flowers to all parts of the city.
+                        Да, мы работаем и доставляем цветы 7 дней в неделю.
+                    </p>
                 </div>
             </div>
 
             <div class="FAQ">
                 <div class="question">
-                    <h3>Can I create my own bouquet?</h3>
+                    <h3>Сколько времени занимает доставка?</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
                 </div>
                 <div class="answer">
                     <p>
-                        Yes, you can create your own bouquet.
+                        Обычно доставка занимает 1-2 часа в зависимости от загруженности.
+                    </p>
+                </div>
+            </div>
+
+            <div class="FAQ">
+                <div class="question">
+                    <h3>Можно ли забрать заказ из магазина?</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Да, вы можете забрать заказ самовывозом по адресу: Павловский Посад, ул. Ленина, д. 15.
+                    </p>
+                </div>
+            </div>
+
+            <div class="FAQ">
+                <div class="question">
+                    <h3>Можно ли заказать доставку на завтра?</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Да, вы можете оформить предзаказ на любую дату. Мы свяжемся с вами накануне для подтверждения.
+                    </p>
+                </div>
+            </div>
+
+            <div class="FAQ">
+                <div class="question">
+                    <h3>В какие районы Павловского Посада вы доставляете?</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Мы доставляем цветы во все районы Павловского Посада, а также в ближайшие населенные пункты.
+                    </p>
+                </div>
+            </div>
+
+            <div class="FAQ">
+                <div class="question">
+                    <h3>Можно ли собрать свой букет?</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+                </div>
+                <div class="answer">
+                    <p>
+                        Да, мы можем собрать индивидуальный букет по вашему желанию. Позвоните нам или оставьте комментарий при заказе.
+                    </p>
                 </div>
             </div>
 
         </section>
 
         <div class="galary">
-            <h2 class="galary_title">FOLLOW US ON INSTAGRAM</h2>
-            <p class="galary_link">@CHERRYBLOSSOM.LA</p>
+            <h2 class="galary_title">МЫ В INSTAGRAM</h2>
+            <p class="galary_link">@PAVLOVSKIY_POSAD_FLOWERS</p>
             <div class="galary_imgs">
-                <img class="galary_img" src="../static/images/img1.png" alt="galary1">
-                <img class="galary_img" src="../static/images/img2.png" alt="galary1">
-                <img class="galary_img" src="../static/images/img3.png" alt="galary1">
-                <img class="galary_img" src="../static/images/img4.png" alt="galary1">
-                <img class="galary_img" src="../static/images/img5.png" alt="galary1">
-                <img class="galary_img" src="../static/images/img6.png" alt="galary1">
+                <img class="galary_img" th:src="@{/images/img1.png}" alt="Наши работы 1">
+                <img class="galary_img" th:src="@{/images/img2.png}" alt="Наши работы 2">
+                <img class="galary_img" th:src="@{/images/img3.png}" alt="Наши работы 3">
+                <img class="galary_img" th:src="@{/images/img4.png}" alt="Наши работы 4">
+                <img class="galary_img" th:src="@{/images/img5.png}" alt="Наши работы 5">
+                <img class="galary_img" th:src="@{/images/img6.png}" alt="Наши работы 6">
             </div>
         </div>
 
         <div class="worcktime">
-            <img class="worcktime_img" src="../static/images/order2.png" alt="">
+            <img class="worcktime_img" th:src="@{/images/order2.png}" alt="Время работы">
         </div>
     </main>
     <footer class="footer">
-        <img class="logo" src="../static/images/Group 514.png" alt="logo">
-        <h3 class="footer_title">Данный проект создан в целях учебного <br> проекта и не несёт никакой коммерческой ценности</h3>
+        <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип">
+        <h3 class="footer_title">Цветочный магазин в Павловском Посаде<br>Доставка свежих цветов ежедневно<br>+7 (495) 123-45-67</h3>
     </footer>
-    <script src="../static/js/main.js"></script>
+    <script th:src="@{/js/main.js}"></script>
 </body>
-</html
+</html>
