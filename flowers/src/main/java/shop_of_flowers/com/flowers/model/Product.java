@@ -1,13 +1,13 @@
 package shop_of_flowers.com.flowers.model;
-import org.springframework.data.annotation.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@AllArgsConstructor
+@Table(name = "item")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,19 @@ public class Product {
     private String type;
     private int price;
     private String description;
+
+
+    public Product(){}
+    
+
+    public Product(String title, String photoPath, String type, 
+                   int price, String description) {
+        this.title = title;
+        this.photoPath = photoPath;
+        this.type = type;
+        this.price = price;
+        this.description = description;
+    }
 
     public int getId(){
         return this.id;
@@ -40,4 +53,27 @@ public class Product {
     public String getDescription(){
         return this.description;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
