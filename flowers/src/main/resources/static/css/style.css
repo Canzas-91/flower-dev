@@ -716,7 +716,7 @@ h3 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 .modal_reg {
-  display: block; 
+  display: none; 
   position: fixed; 
   z-index: 1001; 
   left: 0;
