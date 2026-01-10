@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 // FAQ функционал
 const faqs = document.querySelectorAll('.FAQ');
 
@@ -18,111 +27,8 @@ faqs.forEach(faq => {
 });
 
 // Добавляем обработчики для всех кнопок "В корзину"
-document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.cotalog_bt');
-    const cartIcon = document.querySelector('.cart-ico');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const item = this.closest('.cotalog_item');
-            const itemName = item.querySelector('.item_title').textContent;
-            const itemPrice = item.querySelector('.cotalog_price').textContent;
-            
-            // Анимация добавления в корзину
-            this.textContent = 'Добавлено!';
-            this.style.backgroundColor = '#4CAF50';
-            this.style.color = 'white';
-            if (cartIcon) {
-                cartIcon.classList.add('shake');
-                setTimeout(() => {
-                    cartIcon.classList.remove('shake');
-                }, 500);
-            }
-            
-            // Восстановление кнопки через 2 секунды
-            setTimeout(() => {
-                this.textContent = 'В корзину';
-                this.style.backgroundColor = '#665F5F';
-            }, 1000);
-            
-            // Можно добавить логику сохранения в LocalStorage
-            addToCartLocalStorage(itemName, itemPrice);
-        });
-    });
-    
-    // Обработчик для кнопки "Смотреть каталог"
-    const viewNowButton = document.querySelector('.cover-bt');
-    if (viewNowButton) {
-        viewNowButton.addEventListener('click', function() {
-            const catalogSection = document.querySelector('.cotalog');
-            if (catalogSection) {
-                catalogSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-    
-    // Обработчик для корзины
-    if (cartIcon) {
-        cartIcon.addEventListener('click', function() {
-            alert('Корзина пока в разработке. Скоро появится функционал!');
-        });
-    }
-    
-    // Обработчики для изображений галереи
-    const galleryImages = document.querySelectorAll('.galary_img');
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
-            // Можно добавить модальное окно с увеличенным изображением
-            this.classList.toggle('zoomed');
-        });
-    });
-    
-    // Плавное появление элементов при скролле
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Наблюдаем за элементами
-    const animatedElements = document.querySelectorAll('.cotalog_item, .title_conteiner, .FAQ, .galary_img');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
-    });
-});
 
-// Функция для добавления в LocalStorage (базовая реализация)
-function addToCartLocalStorage(name, price) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    const item = {
-        id: Date.now(),
-        name: name,
-        price: price,
-        quantity: 1,
-        date: new Date().toISOString()
-    };
-    
-    cart.push(item);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Обновляем счетчик корзины, если он есть
-    updateCartCounter();
-}
+
 
 // Функция обновления счетчика корзины
 function updateCartCounter() {
@@ -202,12 +108,78 @@ regSpan.onclick = function() {
     regModal.style.display = "none";
 }
 
-regBtn.onclick = function() {
+regBtn.addEventListener('click', function() {
     regModal.style.display = "block";
-}
+}   
+)
+let listProducts = [];
 
-window.onclick = function(event) {
-    if (event.target == regModal) {
-        regModal.style.display = "none";
-    }
-} 
+const initProducts = () => {
+    fetch ('product.json')
+    .then (response => response.json())
+    .then (data => {
+        listProducts = data;
+        console.log(listProducts);
+        const catalogContainer = document.querySelector('.cotalog_items');
+        listProducts.forEach(product => {
+            const productHTML = `
+                <div class="cotalog_item">
+                    <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Кристалл" src="${product.image}">
+                    <div class="cotalog_activ">
+                        <div class="cotalog_info">
+                            <p class="item_title">${product.name}</p>
+                            <h2 class="cotalog_price">${product.price} ₽</h2>
+                        </div>
+                        <button class="cotalog_bt" id = "add-to-cart">В корзину</button>
+                    </div>
+                </div>
+            `;
+
+            catalogContainer.insertAdjacentHTML('beforeend', productHTML);
+        })
+        
+        // Добавляем обработчики для кнопок ПОСЛЕ загрузки товаров
+        let cartAddButtons = document.querySelectorAll('.cotalog_bt');
+        cartAddButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                
+                // Анимация добавления в корзину
+                this.textContent = 'Добавлено!';
+                this.style.backgroundColor = '#4CAF50';
+                this.style.color = 'white';
+                
+                // Восстановление кнопки через 2 секунды
+                setTimeout(() => {
+                    this.textContent = 'В корзину';
+                    this.style.backgroundColor = '#665F5F';
+                }, 1000);
+                
+                // Добавление товара в корзину
+                const productIndex = Array.from(cartAddButtons).indexOf(this);
+                const selectedProduct = listProducts[productIndex];
+                
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push(selectedProduct);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Обновление счетчика корзины
+                updateCartCounter();    
+            });
+        });
+    })
+}
+initProducts();
+
+let coverBtn = document.querySelector('.cover-bt');
+
+coverBtn.addEventListener('click', function() {
+    document.querySelector('.cotalog').scrollIntoView({ behavior: 'smooth' });
+});
+
+let cartAddButtons = document.querySelectorAll('.cotalog_bt');
+
+cartAddButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        alert('Товар добавлен в корзину!');
+    });
+});

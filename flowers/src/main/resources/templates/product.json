@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Роза",
+        "price": 150,
+        "image": "item1.png"
+    },
+    {
+        "id": 2,
+        "name": "Тюльпан",
+        "price": 100,
+        "image": "item1.png"
+    },
+    {
+        "id": 3,
+        "name": "Лилия",
+        "price": 200,
+        "image": "item1.png"
+    },
+    {
+        "id": 4,
+        "name": "Роза",
+        "price": 150,
+        "image": "item1.png"
+    },
+    {
+        "id": 5,
+        "name": "Тюльпан",
+        "price": 100,
+        "image": "item1.png"
+    },
+    {
+        "id": 6,
+        "name": "Лилия",
+        "price": 200,
+        "image": "item1.png"
+    }
+]
