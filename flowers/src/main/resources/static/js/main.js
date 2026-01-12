@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 // FAQ функционал
 const faqs = document.querySelectorAll('.FAQ');
 
@@ -119,11 +110,10 @@ const initProducts = () => {
     .then (response => response.json())
     .then (data => {
         listProducts = data;
-        console.log(listProducts);
         const catalogContainer = document.querySelector('.cotalog_items');
         listProducts.forEach(product => {
             const productHTML = `
-                <div class="cotalog_item">
+                <div class="cotalog_item" data-id="${product.id}">
                     <img class="cotalog_img" th:src="@{/images/item1.png}" alt="Букет Кристалл" src="${product.image}">
                     <div class="cotalog_activ">
                         <div class="cotalog_info">
@@ -134,10 +124,8 @@ const initProducts = () => {
                     </div>
                 </div>
             `;
-
             catalogContainer.insertAdjacentHTML('beforeend', productHTML);
-        })
-        
+        });
         // Добавляем обработчики для кнопок ПОСЛЕ загрузки товаров
         let cartAddButtons = document.querySelectorAll('.cotalog_bt');
         cartAddButtons.forEach(button => {
@@ -163,23 +151,22 @@ const initProducts = () => {
                 localStorage.setItem('cart', JSON.stringify(cart));
                 
                 // Обновление счетчика корзины
-                updateCartCounter();    
+                updateCartCounter();
             });
         });
     })
 }
 initProducts();
 
+let inCart = document.querySelector('.cotalog_bt');
+
+inCart.addEventListener('click', function() {
+    alert('Товар добавлен в корзину!');
+});
+
 let coverBtn = document.querySelector('.cover-bt');
 
 coverBtn.addEventListener('click', function() {
     document.querySelector('.cotalog').scrollIntoView({ behavior: 'smooth' });
 });
-
-let cartAddButtons = document.querySelectorAll('.cotalog_bt');
-
-cartAddButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        alert('Товар добавлен в корзину!');
-    });
-});
+initProducts();
