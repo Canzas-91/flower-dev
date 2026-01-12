@@ -1,3 +1,10 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "workbench.editor.empty.hint": "hidden",
+    "accessibility.verbosity.inlineChat": true,
+    "cSpell.words": [
+        "добавление",
+        "корзину",
+        "написать"
+    ]
 }

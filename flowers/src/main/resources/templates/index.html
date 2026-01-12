@@ -10,10 +10,14 @@
     <header class="header">
         <img class="logo" th:src="@{/images/Group 514.png}" alt="Логотип цветочного магазина" src ="../static/images/Group 514.png">
         <div class="header_active">
+            <div class="home_ico" onclick="location.href='index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 16 16" fill="none"><path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z" fill="#000000"/></svg>
+            </div>
             <div class="reg_ico">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 16 16" fill="none"><path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#000000"/><path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#000000"/></svg>
             </div>
-            <div class="cart-ico">
+            <div class="cart-ico" onclick="location.href='cart.html'">
+                <div class="cart_num"></div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><title>Корзина</title><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"><path d="M5 7h13.79a2 2 0 0 1 1.99 2.199l-.6 6A2 2 0 0 1 18.19 17H8.64a2 2 0 0 1-1.962-1.608z"/><path stroke-linecap="round" d="m5 7l-.81-3.243A1 1 0 0 0 3.22 3H2m6 18h2m6 0h2"/></g></svg>
             </div>
         </div>
@@ -24,10 +28,10 @@
             <div class="cover-text">
                 <h1 class="cover-title">Цветы для любого случая</h1>
                 <p>Доставляем самые свежие цветы в Павловском Посаде</p>
-                <button class="cover-bt">Смотреть каталог</button>
+                <button class="cover-bt" onclick="location.href = '.cotalog'">Смотреть каталог</button>
             </div>    
         </div>
-        <div class="cotalog">
+        <div class="cotalog" id="cotalog">
             <h1 class="cotalog_title">ПОПУЛЯРНЫЕ БУКЕТЫ</h1>
             <div class="cotalog_items">
             </div>
@@ -194,6 +198,6 @@
             </form>
         </div>
     </div>
-    <script th:src="@{/js/main.js}" src="../static/js/main.js"></script>
+    <script th:src="@{/js/main2.js}" src="../static/js/main2.js"></script>
 </body>
 </html>
